@@ -33,8 +33,8 @@ function handleSearch(event) {
         displayCountryCard(countries);
         return;
         }
+        clearInterface();
       displayCountryList(countries)
-      clearInterface();
       
     })
       .catch(() => {
