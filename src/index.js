@@ -20,28 +20,26 @@ function handleSearch(event) {
   fetchCountries(searchText)
     .then(countries => {
       if (countries.length === 0) {
+        Notiflix.Notify.failure('Oops, there is no country with that name');
           clearInterface();
-           Notiflix.Notify.failure('Oops, there is no country with that name');
         return;
-      }
-
-        if (countries.length > 10) {
+      } else if (countries.length > 10) {
             clearInterface();
             Notiflix.Notify.info(
             'Too many matches found. Please enter a more specific name.');
         return;
-      }
-      if (countries.length === 1) {
+      }else if (countries.length === 1) {
         clearInterface();
         displayCountryCard(countries);
         return;
-      }
+        }
+      displayCountryList(countries)
       clearInterface();
-      displayCountryList(countries);
+      
     })
       .catch(() => {
+        Notiflix.Notify.failure('Oops, there is no country with that name');
         clearInterface();
-      Notiflix.Notify.failure('Oops, there is no country with that name');
     });
 }
 
