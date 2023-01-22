@@ -67,9 +67,10 @@ function displayCountryCard(country) {
 
 function displayCountryList(countries) {
 
-  const markup = `<li class="position">
-                <img src="${countries[0].flags.svg}" width="30" height="28" alt="${countries[0].capital} flag">
-                <h3>${countries[0].name.official}<h3>
-                </li>`;
-  countryListContainer.innerHTML = markup;
+  const markup = countries.map((country) => {
+  return `<li class="position">
+                <img src="${country.flags.svg}" width="30" height="28" alt="${country.capital} flag">
+                <h3>${country.name.official}<h3>
+                </li>`}).join(``);
+    countryListContainer.innerHTML = markup;
 }

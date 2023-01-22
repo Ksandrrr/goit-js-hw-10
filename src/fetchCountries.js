@@ -10,3 +10,4 @@ const fetchCountries = (name) => {
 }
 
 export { fetchCountries };
+  
